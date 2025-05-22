@@ -12,17 +12,58 @@ import java.util.List;
 
 public class Inventory
 {
-     
-    public Inventory(ArrayList<String> preList)
+    private ArrayList<Tool> itemCollection;
+    private static int storageSpace;
+    private int usedStorage  = 0;
+    public Inventory(ArrayList<Tool> preList, int size)
     {
-        list = preList;
+        itemCollection = preList;
+        storageSpace = size;
+        for(Tool t : preList)
+        {
+            usedStorage += t.getQuant();
+        }
+    }
+
+    public Inventory(int size)
+    {
+        storageSpace = size;
+    }
+
+    public void addItem(Tool newEquipment)
+    {
+        if(usedStorage < storageSpace)
+        {
+            itemCollection.add(newEquipment);
+            usedStorage += newEquipment.getQuant();
+        }
+        System.out.println("STORAGE FULL");
+    }
+
+    public void addItem(Tool newEquipment, int index)
+    {
+        if(usedStorage < storageSpace)
+        {
+            itemCollection.get(index);
+            usedStorage += newEquipment.getQuant();
+        }
+        System.out.println("STORAGE FULL");
     }
 
 
+    public void removeItem(int index, int amount)
+    {
+        itemCollection.get(index).changeStock(-amount);
+    }
 
     public String toString()
     {
-
+        String s = "";
+        for(Tool t : itemCollection)
+        {
+            s += t.toString() + "\n";
+        }
+        return s;
     }
 
 } 

@@ -1,4 +1,4 @@
-public class Item
+public class Tool
 {
     private String name;
     private String condition;
@@ -6,7 +6,7 @@ public class Item
     private int quantity;
     private int replace_cost;
 
-    public Item(String n, int q, String c, int rc, String note)
+    public Tool(String n, int q, String c, int rc, String note)
     {
         name = n;
         notes = note;
@@ -14,6 +14,16 @@ public class Item
         quantity = q;
         replace_cost = rc;
 
+    }
+
+    public void changeStock(int x)
+    {
+        quantity += x;
+    }
+
+    public int getQuant()
+    {
+        return quantity;
     }
 
     public String toString()
