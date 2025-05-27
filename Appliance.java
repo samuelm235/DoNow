@@ -1,4 +1,4 @@
-public class Tool
+public class Appliance
 {
     private String name;
     private String condition;
@@ -6,7 +6,7 @@ public class Tool
     private int quantity;
     private int replace_cost;
 
-    public Tool(String n, int q, String c, int rc, String note)
+    public Appliance(String n, int q, String c, int rc, String note)
     {
         name = n;
         notes = note;
@@ -24,6 +24,11 @@ public class Tool
     public int getQuant()
     {
         return quantity;
+    }
+    
+    public String getName()
+    {
+        return name;
     }
 
     public String toString()

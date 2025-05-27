@@ -1,25 +1,16 @@
 import java.util.ArrayList;
-import com.google.api.client.googleapis.javanet.GoogleNetHttpTransport;
-import com.google.api.client.json.JsonFactory;
-import com.google.api.client.json.jackson2.JacksonFactory;
-import com.google.api.client.googleapis.auth.oauth2.GoogleCredential;
-import com.google.api.services.sheets.v4.Sheets;
-import com.google.api.services.sheets.v4.model.*;
 
-import java.io.FileInputStream;
-import java.util.Arrays;
-import java.util.List;
 
 public class Inventory
 {
-    private ArrayList<Tool> itemCollection;
+    private ArrayList<Appliance> itemCollection;
     private static int storageSpace;
     private int usedStorage  = 0;
-    public Inventory(ArrayList<Tool> preList, int size)
+    public Inventory(ArrayList<Appliance> preList, int size)
     {
         itemCollection = preList;
         storageSpace = size;
-        for(Tool t : preList)
+        for(Appliance t : preList)
         {
             usedStorage += t.getQuant();
         }
@@ -30,17 +21,29 @@ public class Inventory
         storageSpace = size;
     }
 
-    public void addItem(Tool newEquipment)
+    public void addItem(Appliance newEquipment)
     {
-        if(usedStorage < storageSpace)
+        int amnt = newEquipment.getQuant();
+        for(Appliance t : itemCollection)
+        {
+            if(t.getName().equals(newEquipment.getName()))
+            {
+                if(usedStorage + amnt < storageSpace)
+                {
+                    t.changeStock(amnt);
+                    usedStorage += amnt;
+                }
+            }
+        }
+        if(usedStorage + amnt < storageSpace)
         {
             itemCollection.add(newEquipment);
-            usedStorage += newEquipment.getQuant();
+            usedStorage += amnt;
         }
-        System.out.println("STORAGE FULL");
+        System.out.println("STORAGE TOO FULL");
     }
 
-    public void addItem(Tool newEquipment, int index)
+    public void addItem(Appliance newEquipment, int index)
     {
         if(usedStorage < storageSpace)
         {
@@ -59,7 +62,7 @@ public class Inventory
     public String toString()
     {
         String s = "";
-        for(Tool t : itemCollection)
+        for(Appliance t : itemCollection)
         {
             s += t.toString() + "\n";
         }
