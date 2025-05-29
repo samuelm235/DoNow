@@ -20,6 +20,10 @@ public class Inventory
     {
         storageSpace = size;
     }
+    public ArrayList<Appliance> getRawList()
+    {
+        return itemCollection;
+    }
 
     public void addItem(Appliance newEquipment)
     {
