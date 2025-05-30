@@ -36,6 +36,7 @@ public class Inventory
                 {
                     t.changeStock(amnt);
                     usedStorage += amnt;
+                    break;
                 }
             }
         }
@@ -44,7 +45,7 @@ public class Inventory
             itemCollection.add(newEquipment);
             usedStorage += amnt;
         }
-        System.out.println("STORAGE TOO FULL");
+        else{System.out.println("STORAGE TOO FULL");}
     }
 
     public void addItem(Appliance newEquipment, int index)

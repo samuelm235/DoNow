@@ -37,7 +37,7 @@ public class Main
             System.out.println("Notes: ");
             String note = inputStr.next();
 
-            items.add(new Appliance(name, quantity, condition, rc, note));
+            doing.addItem(new Appliance(name, quantity, condition, rc, note));
             System.out.println("Go main menu? yes or no.");
             done = inputStr.next();
         }
@@ -60,12 +60,12 @@ public class Main
                 amount = inputint.nextInt();
             }
             doing.removeItem(index, amount);
+            System.out.println("Go main menu? yes or no.");
+            done = inputStr.next();
         }
-        System.out.println("Go main menu? yes or no.");
-        done = inputStr.next();
-    }
-    
     }
     inputint.close();
     inputStr.close();
+    }
+
 }
