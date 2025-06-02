@@ -63,6 +63,17 @@ public class Inventory
     {
         itemCollection.get(index).changeStock(-amount);
     }
+    
+    public void checkCollection()
+    {
+        for(int i = 0; i < itemCollection.size(); i++)
+        {
+            if(itemCollection.get(i).getQuant() <= 0)
+            {
+                itemCollection.remove(i);
+            }
+        }
+    }
 
     public String toString()
     {

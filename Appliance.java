@@ -33,7 +33,7 @@ public class Appliance
 
     public String toString()
     {
-        String s = name + " / " + quantity + " / " + condition + " / " + replace_cost + " / " + notes;
+        String s = name + " / " + quantity + " / " + condition + " / $" + replace_cost + " / " + notes;
         return s;
 
     }
