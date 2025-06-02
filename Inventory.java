@@ -6,6 +6,23 @@ public class Inventory
     private ArrayList<Appliance> itemCollection;
     private static int storageSpace;
     private int usedStorage  = 0;
+
+public List<List<Object>> toSheetData() {
+    List<List<Object>> data = new ArrayList<>();
+    data.add(Arrays.asList("Name", "Quantity", "Condition", "Cost", "Notes")); // header
+    for (Appliance a : itemCollection) {
+        data.add(Arrays.asList(
+            a.getName(),
+            a.getQuant(),
+            a.getCondition(),
+            a.getReplaceCost(),
+            a.getNotes()
+        ));
+    }
+    return data;
+}
+
+
     public Inventory(ArrayList<Appliance> preList, int size)
     {
         itemCollection = preList;
