@@ -8,10 +8,10 @@ public class Main
         String returnMenu = "yes";
         String waiter = "";
         String scale1 = "Very Good"; String scale2 = "Good"; String scale3 = "Fair"; String scale4 = "Poor"; String scale5 = "DEMOLISHED";
-        Appliance a = new Appliance("Couch", 1, scale5, 50, "Two legs fallen off, stiches ripped");
-        Appliance b = new Appliance("3D Printer", 5, scale3, 200, "soooo hard to fix these thingys");
+        //Appliance a = new Appliance("Couch", 1, scale5, 50, "Two legs fallen off, stiches ripped");
+        //Appliance b = new Appliance("3D Printer", 5, scale3, 200, "soooo hard to fix these thingys");
         ArrayList<Appliance> items = new ArrayList<Appliance>();
-        items.add(a); items.add(b);
+        //items.add(a); items.add(b);
         Scanner inputStr = new Scanner(System.in);
         Scanner inputint = new Scanner(System.in);
         while(returnMenu.equals("yes"))
